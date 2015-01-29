@@ -55,5 +55,10 @@ Just install the plugin and activate it. It will start protecting right away.
 
 == Changelog ==
 
+= 1.0.1 =
+* Loading jQuery UI theme
+* Fixed some notices
+* adding trim to the sanitization process
+
 = 1.0.0 =
 * Initial release

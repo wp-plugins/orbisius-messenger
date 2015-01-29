@@ -3,7 +3,7 @@
 Plugin Name: Orbisius Messenger
 Plugin URI: http://club.orbisius.com/products/wordpress-plugins/orbisius-messenger/
 Description: Makes the automated attempts to wait and then it shows an internal error message.
-Version: 1.0.0
+Version: 1.0.1
 Author: Svetoslav Marinov (Slavi)
 Author URI: http://orbisius.com
 */
@@ -40,10 +40,13 @@ class orbisius_messenger {
      * Returns JSON
      */
     function ajax_load_users() {
-        $term = empty($_REQUEST['term']) ? '' : wp_kses($_REQUEST['term'], array());
+        $prep_array = array();
+        $term = empty( $_REQUEST['term'] ) ? '' : $_REQUEST['term'];
+        $term = wp_kses( $term, array() );
+        $term = trim( $term );
        
         $users = get_users( array(
-            'search' => $term . '*', // wildcard search
+            'search' => '*' . $term . '*', // wildcard search
             'orderby' => 'nicename',
             'number' => 5,
             'exclude' => array( get_current_user_id() ), // exclude logged in user
@@ -80,7 +83,17 @@ EOF_BUFF;
         wp_enqueue_script( 'jquery' );
         wp_enqueue_script( 'jquery-ui' );
         wp_enqueue_script( 'jquery-ui-autocomplete' );
-        
+
+        // thanks: http://snippets.webaware.com.au/snippets/load-a-nice-jquery-ui-theme-in-wordpress/
+        global $wp_scripts;
+
+        // get registered script object for jquery-ui
+        $ui = $wp_scripts->query('jquery-ui-core');
+
+        // tell WordPress to load the Smoothness theme from Google CDN
+        $url = "//ajax.googleapis.com/ajax/libs/jqueryui/{$ui->ver}/themes/smoothness/jquery-ui.min.css";
+        wp_enqueue_style('jquery-ui-smoothness', $url, false, null);
+
 		wp_register_script( 'orbisius_messenger', plugins_url("/assets/main{$suffix}.js", __FILE__), array('jquery', ),
 				filemtime( plugin_dir_path( __FILE__ ) . "/assets/main{$suffix}.js" ), true);
 		wp_enqueue_script( 'orbisius_messenger' );
