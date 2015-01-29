@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: authentication, login, security,limit login attempts,limit logins,brute force,securi,secury,auth,best security, botnet, brute force, brute force attack, bruteforce, harden wp, login lockdown, multisite, security, wordfence
 Requires at least: 2.6
 Tested up to: 4.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 
 Allows users to send email messages to each other as long as they know their usernames.
