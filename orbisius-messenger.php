@@ -164,13 +164,30 @@ EOF_BUFF;
                 $reply_to = $current_user->user_email;
                 $message = $data['message'];
 
+                $to_name = $recipient_user->user_login;
+
+                if ( ! empty( $recipient_user->display_name ) ) {
+                    $to_name = $recipient_user->display_name;
+                } elseif ( ! empty( $recipient_user->user_firstname ) &&  ! empty( $recipient_user->user_lastname ) ) {
+                    $to_name = $recipient_user->user_firstname . ' ' . $recipient_user->user_lastname;
+                }
+
+                $from_name = $current_user->user_login;
+
+                if ( ! empty( $current_user->display_name ) ) {
+                    $from_name = $current_user->display_name;
+                } elseif ( ! empty( $current_user->user_firstname ) &&  ! empty( $current_user->user_lastname ) ) {
+                    $from_name = $current_user->user_firstname . ' ' . $current_user->user_lastname;
+                }
+
                 $headers = '';
                 $headers .= "From: $site_name Mailer <mailer@$host>\r\n";
-                $headers .= "Reply-To: $reply_to\r\n"; // @todo add the names if present
+                $headers .= "Reply-To: $from_name <$reply_to>\r\n"; // @todo add the names if present
 
                 $attachments = array();
 
-                $mail_status = wp_mail( $to, $subject, $message, $headers, $attachments );
+                $to_line = "$to_name <$to>";
+                $mail_status = wp_mail( $to_line, $subject, $message, $headers, $attachments );
                 
                 if ( empty( $mail_status ) ) {
                     throw new Exception( "There was a problem sending the message. Please try again later." );

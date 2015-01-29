@@ -16,6 +16,9 @@ Allows users to send email messages to each other as long as they know their use
 = Features / Benefits =
 * Simple to use just insert a shortcode to generate the send message form
 * Auto suggests users. You the user needs to type just 2 characters and they will be offered usernames to choose from
+* Users can't email each other
+* User's names are added to the from and to fields.
+
 
 = Usage =
 Create a page and paste this shortcode.
@@ -25,7 +28,7 @@ Then direct the users to that page.
 The code will generate a simple form which will accept username and message and then send the message to the recipient.
 
 == Demo ==
-TODO
+https://www.youtube.com/watch?v=KBGDeMyuCcs
 
 Bugs? Suggestions? If you want a faster response contact us through our website's contact form [ orbisius.com ] and not through the support tab of this plugin or WordPress forums.
 We don't get notified when such requests get posted in the forums.
@@ -58,7 +61,8 @@ Just install the plugin and activate it. It will start protecting right away.
 = 1.0.1 =
 * Loading jQuery UI theme
 * Fixed some notices
-* adding trim to the sanitization process
+* Adding trim to the sanitization process
+* Added names of the sender and recipient
 
 = 1.0.0 =
 * Initial release
