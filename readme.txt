@@ -58,6 +58,9 @@ Just install the plugin and activate it. It will start protecting right away.
 
 == Changelog ==
 
+= 1.0.2 =
+* Added code to the name detecting function to use First name if others fail.
+
 = 1.0.1 =
 * Loading jQuery UI theme
 * Fixed some notices

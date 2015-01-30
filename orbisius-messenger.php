@@ -3,7 +3,7 @@
 Plugin Name: Orbisius Messenger
 Plugin URI: http://club.orbisius.com/products/wordpress-plugins/orbisius-messenger/
 Description: Makes the automated attempts to wait and then it shows an internal error message.
-Version: 1.0.1
+Version: 1.0.2
 Author: Svetoslav Marinov (Slavi)
 Author URI: http://orbisius.com
 */
@@ -168,8 +168,10 @@ EOF_BUFF;
 
                 if ( ! empty( $recipient_user->display_name ) ) {
                     $to_name = $recipient_user->display_name;
-                } elseif ( ! empty( $recipient_user->user_firstname ) &&  ! empty( $recipient_user->user_lastname ) ) {
+                } elseif ( ! empty( $recipient_user->user_firstname ) &&  ! empty( $recipient_user->user_lastname ) ) { // first and last names
                     $to_name = $recipient_user->user_firstname . ' ' . $recipient_user->user_lastname;
+                } elseif ( ! empty( $recipient_user->user_firstname ) ) { // only first name
+                    $to_name = $recipient_user->user_firstname;
                 }
 
                 $from_name = $current_user->user_login;
@@ -178,6 +180,8 @@ EOF_BUFF;
                     $from_name = $current_user->display_name;
                 } elseif ( ! empty( $current_user->user_firstname ) &&  ! empty( $current_user->user_lastname ) ) {
                     $from_name = $current_user->user_firstname . ' ' . $current_user->user_lastname;
+                } elseif ( ! empty( $current_user->user_firstname ) ) {
+                    $from_name = $current_user->user_firstname;
                 }
 
                 $headers = '';
