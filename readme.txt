@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: authentication, login, security,limit login attempts,limit logins,brute force,securi,secury,auth,best security, botnet, brute force, brute force attack, bruteforce, harden wp, login lockdown, multisite, security, wordfence
 Requires at least: 2.6
 Tested up to: 4.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 
 Allows users to send email messages to each other as long as they know their usernames.
@@ -19,7 +19,6 @@ Allows users to send email messages to each other as long as they know their use
 * Users can't email each other
 * User's names are added to the from and to fields.
 
-
 = Usage =
 Create a page and paste this shortcode.
 [orbisius_messenger_contact_form]
@@ -27,7 +26,7 @@ Create a page and paste this shortcode.
 Then direct the users to that page.
 The code will generate a simple form which will accept username and message and then send the message to the recipient.
 
-== Demo ==
+= Demo =
 https://www.youtube.com/watch?v=KBGDeMyuCcs
 
 Bugs? Suggestions? If you want a faster response contact us through our website's contact form [ orbisius.com ] and not through the support tab of this plugin or WordPress forums.
@@ -60,6 +59,7 @@ Just install the plugin and activate it. It will start protecting right away.
 
 = 1.0.2 =
 * Added code to the name detecting function to use First name if others checks fail. The very last and default is the username
+* 1.0.2
 
 = 1.0.1 =
 * Loading jQuery UI theme
